@@ -6,7 +6,6 @@ from selenium.webdriver.common.action_chains import ActionChains
 # untuk dinamis, kalau element ga ada, dan ada
 from selenium.common.exceptions import NoSuchElementException
 
-
 class Homepage:
     def __init__(self, driver):
         self.driver = driver
@@ -60,23 +59,39 @@ class Homepage:
         h4Alya_text = h4Alya.text
         assert h4Alya_text == "Alya Vionita Salsabilla"
 
-    
-        main_window = self.driver.current_window_handle
-        linkedIn = self.driver.find_element(By.XPATH, '//a[@href="https://www.linkedin.com/company/mncnowid/jobs/"]')
-        self.driver.execute_script("arguments[0].scrollIntoView(true);", linkedIn)
-        time.sleep(2)
-        linkedIn.click()
-        for handle in self.driver.window_handles:
-            if handle != main_window:
-                self.driver.switch_to.window(handle)
-                break
-        assert "https://id.linkedin.com/company/mncnowid" in self.driver.current_url
-        self.driver.close()
-        self.driver.switch_to.window(main_window)
+        faq1 = self.driver.find_element(By.XPATH, '//button[contains(., "What is Vision+?")]')
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", faq1)
+        faq1_text = faq1.text
+        assert faq1_text == "What is Vision+?"
+        time.sleep(1)
 
-        footer = self.driver.find_element(By.XPATH, '//p[contains(., "Copyright © 2023 Vision+ Academy. All Rights Reserved")]')
-        footer_text = footer.text
-        assert footer_text == "Copyright © 2023 Vision+ Academy. All Rights Reserved"
+        faq2 = self.driver.find_element(By.XPATH, '//button[contains(., "What are the requirements for the Vision+ Academy program?")]')
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", faq2)
+        faq2_text = faq2.text
+        assert faq2_text == "What are the requirements for the Vision+ Academy program?"
+        faq2.click()
+        time.sleep(1)
+       
+        faq3 = self.driver.find_element(By.XPATH, '//button[contains(., "Who can join the Vision+ Academy program?")]')
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", faq3)
+        faq3_text = faq3.text
+        assert faq3_text == "Who can join the Vision+ Academy program?"
+        faq3.click()
+        time.sleep(1)
+       
+        faq4 = self.driver.find_element(By.XPATH, '//button[contains(., "Is the Vision+ Academy program implemented by WFH or WFO?")]')
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", faq4)
+        faq4_text = faq4.text
+        assert faq4_text == "Is the Vision+ Academy program implemented by WFH or WFO?"
+        faq4.click()
+        time.sleep(1)
+
+        faq5 = self.driver.find_element(By.XPATH, '//button[contains(., "What are the fields that the students can choose in the Vision+ Academy program?")]')
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", faq5)
+        faq5_text = faq5.text
+        assert faq5_text == "What are the fields that the students can choose in the Vision+ Academy program?"
+        faq5.click()
+        time.sleep(1)
 
 
 

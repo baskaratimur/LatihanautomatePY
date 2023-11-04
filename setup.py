@@ -1,5 +1,4 @@
 from selenium import webdriver
-
 def SetupDriver():
     options = webdriver.ChromeOptions()
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
