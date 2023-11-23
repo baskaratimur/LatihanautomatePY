@@ -1,12 +1,15 @@
 import time
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.action_chains import ActionChains
+
 
 class Header:
      def __init__(self, driver):
           self.driver = driver
 
      def ClickNavAbout(self):
-          self.driver.find_element(By.XPATH, "//button[contains(text(), 'About')]").click
+          self.driver.find_element(By.XPATH, '//button[contains(text(), "About") and @class="underline underline-offset-8 decoration-[#00CEBB] text-white text-base font-normal flex items-center gap-2"]').click()
+          time.sleep(1)
 
      
      def ClickNavLife(self):
@@ -20,6 +23,11 @@ class Header:
      def ClickNavFaq(self):
           self.driver.find_element(By.XPATH, "//button[contains(text(), 'FAQ')]").click()
   
+     def PerformAbout(self):
+          hoverAbout = self.driver.find_element(By.XPATH, '//button[contains(text(), "About") and @class="underline underline-offset-8 decoration-[#00CEBB] text-white text-base font-normal flex items-center gap-2"]')
+          actions = ActionChains(self.driver)
+          actions.move_to_element(hoverAbout).perform()
+          time.sleep(2)
 
      def VerifyNavbar(self):
           navAbout = self.driver.find_element(By.XPATH, "//button[contains(text(), 'About')]")
