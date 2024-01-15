@@ -6,10 +6,9 @@ import jsonpath
 class TestBannerUpdate:
     @pytest.fixture
     def token(self):
-        url = "https://stag-digistar.visionplus.id/api/partnership/v1/cms/users/login"
+        url = ""
         data = {
-            "username": "innocent@mncinnovation.id",
-            "password": "!nn0c3nt"
+           ""
         }
         headersAuth = {"Accept-Language": "id"}
         response = requests.post(url, json=data, headers=headersAuth)
@@ -19,11 +18,11 @@ class TestBannerUpdate:
         yield dataJson
 
     def test_updateBanner(self, token):
-        url = "https://stag-digistar.visionplus.id/api/partnership/v1/contents/banner/digistar/id/1"
+        url = ""
         data = {
             "title": "Arab Maklum Automate",
             "title_en": "Arab Maklum Automate",
-            "image_url": "https://static.mncnow.id/images/series/aeb12d16/6698_r83.jpg",
+            "image_url": "images/series/aeb12d16/6698_r83.jpg",
             "next_url": "string1",
             "image_popup": "automate",
             "image_popup_web": "automate",
