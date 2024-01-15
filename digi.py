@@ -2,7 +2,7 @@ import json
 import jsonpath
 import requests
 
-url = "https://stag-digistar.visionplus.id/api/partnership/v1/contents/banner/digistar/id/1"
+url = ""
 data = {
         "title": "Arab Maklum Automate",
         "title_en": "Arab Maklum Automate",
@@ -32,7 +32,7 @@ data = {
         }
     
 headersAuth = {
-    "Authorization" : "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkFkbWluIiwiZXhwaXJlcyI6MTY5ODIyNzI5OS4yNTY3NzM3fQ.iRjNXPRtygEVjGPNBJKwqMjwe7pFSfsdynAnM7kJu8A",
+    "Authorization" : "Bearer " + "",
     "Accept-Language" : "id"
             }
 response = requests.put(url, json=data, headers=headersAuth)
